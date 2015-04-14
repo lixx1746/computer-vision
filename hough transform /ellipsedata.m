@@ -1,0 +1,10 @@
+function [X,Y] = ellipsedata(cent,a,b,angle,steps)
+if nargin<6, steps = 36; end
+beta = -angle * (pi / 180);
+sinbeta = sin(beta);
+cosbeta = cos(beta);
+alpha = linspace(0, 360, steps)' .* (pi / 180);
+sinalpha = sin(alpha);
+cosalpha = cos(alpha);
+X = cent(1) + (a * cosalpha * cosbeta - b * sinalpha * sinbeta);
+Y = cent(2) + (a * cosalpha * sinbeta + b * sinalpha * cosbeta);
